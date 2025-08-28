@@ -25,10 +25,10 @@ app.post("/register", (req, res) => {
 */
 });
 
-app.get("/getAllUsers", (req, res) => {
+app.get("/getAllUsers", async(req, res) => {
   let users;
   try {
-    users = prisma.user.findMany({
+    users = await prisma.user.findMany({
       select: {
         email: true,
         name: true,
